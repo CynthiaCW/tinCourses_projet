@@ -3,7 +3,7 @@
 {% block title %}Article{% endblock %}
 
 {% block body %}
-    <h1>Article</h1>
+    <h1>Choisissez un article : </h1>
 
     <table class="table">
         <tbody>
@@ -22,9 +22,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_article_index') }}">back to list</a>
+    <a href="{{ path('app_article') }}">back to list</a>
 
-    <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a>
-
-    {{ include('article/_delete_form.html.twig') }}
 {% endblock %}

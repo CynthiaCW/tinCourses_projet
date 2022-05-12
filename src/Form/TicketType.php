@@ -18,7 +18,7 @@ class TicketType extends AbstractType
         ;
     }
 
-    public function configureOptions(OptionsResolver $resolver): void
+    public function configureOptions(OptionsResolver $resolver): void // Permetbde spécifier l'utilisation de l'input pour le form
     {
         $resolver->setDefaults([
             'data_class' => Ticket::class,
