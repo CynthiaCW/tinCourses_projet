@@ -1,6 +1,6 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
 
-{% block title %}Article index{% endblock %}
+<title>Article index</title>
 
 {% block body %}
     <h1>Article index</h1>
@@ -22,7 +22,6 @@
                 <td>{{ article.description }}</td>
                 <td>
                     <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
-                    <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +32,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_article_new') }}">Create new</a>
 {% endblock %}

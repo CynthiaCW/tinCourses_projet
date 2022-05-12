@@ -4,13 +4,12 @@ namespace App\Controller\Article;
 
 use App\Entity\Ticket;
 use App\Form\TicketType;
-use App\Repository\TicketRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/article/validate')]
+#[Route('/article/validate', name: 'app_article_validate')]
 class ArticleValidateController extends AbstractController
 {
 

@@ -1,6 +1,6 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
 
-{% block title %}Article{% endblock %}
+<title>Article</title>
 
 {% block body %}
     <h1>Article</h1>
@@ -23,8 +23,4 @@
     </table>
 
     <a href="{{ path('app_article_index') }}">back to list</a>
-
-    <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a>
-
-    {{ include('article/_delete_form.html.twig') }}
 {% endblock %}
