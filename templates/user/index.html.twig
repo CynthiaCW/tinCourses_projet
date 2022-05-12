@@ -9,10 +9,9 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Pseudo</th>
-                <th>Pwd</th>
                 <th>Email</th>
-                <th>Date_creation</th>
+                <th>Roles</th>
+                <th>Password</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -20,10 +19,9 @@
         {% for user in users %}
             <tr>
                 <td>{{ user.id }}</td>
-                <td>{{ user.pseudo }}</td>
-                <td>{{ user.pwd }}</td>
                 <td>{{ user.email }}</td>
-                <td>{{ user.dateCreation ? user.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <td>{{ user.password }}</td>
                 <td>
                     <a href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
                     <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
@@ -31,7 +29,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="5">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
