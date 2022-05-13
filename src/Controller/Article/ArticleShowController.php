@@ -19,4 +19,25 @@ class ArticleShowController extends AbstractController
             'article' => $article,
         ]);
     }
+
+    #[Route('/', name: 'app_article', methods: ['GET'])]
+    public function index(ArticleRepository $a) : Response
+    {
+        $articles = $a->findAll();
+
+        $id = array_rand($articles);
+        $article = $a->find($id);
+        while($article === null)
+        {
+            $id = array_rand($articles);
+            $article = $a->find($id);
+        }
+
+        //dd($article);
+        return $this->render('article/index.html.twig', [
+            'articles' => $articles,
+            "articleRandom" => $article
+        ]);
+    }
+    
 }

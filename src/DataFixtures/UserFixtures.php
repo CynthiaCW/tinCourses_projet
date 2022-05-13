@@ -13,7 +13,7 @@ class UserFixtures extends Fixture
         $user = new User;
         $user->setPseudo("anne");
         $user->setEmail("anne@user.fr");
-        $user->setPwd($this->userPasswordHasher->hashPassword(
+        $user->setPassword($this->userPasswordHasher->hashPassword(
             $user, 
             "coucou"
             )
@@ -23,7 +23,7 @@ class UserFixtures extends Fixture
         $user = new User;
         $user->setPseudo("estelle");
         $user->setEmail("estelle@user.fr");
-        $user->setPwd($this->userPasswordHasher->hashPassword(
+        $user->setPassword($this->userPasswordHasher->hashPassword(
             $user, 
             "estelle123"
         )

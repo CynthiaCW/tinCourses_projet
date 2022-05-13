@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            <!-- UIkit CSS -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.14.1/dist/css/uikit.min.css" />
+        {% endblock %}
+
+        {% block javascripts %}
+            <!-- UIkit JS -->
+            <script src="https://cdn.jsdelivr.net/npm/uikit@3.14.1/dist/js/uikit.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/uikit@3.14.1/dist/js/uikit-icons.min.js"></script>
+        {% endblock %}
+    </head>
+    <body>
+    {% block header %}
+   <nav class="uk-navbar-container uk-margin" uk-navbar>
+        <div class="uk-navbar-center">
+
+            <div class="uk-navbar-center-left">
+                <div>
+                    <ul class="uk-navbar-nav">
+                        
+                         <li class="uk-active"><a href="{{ path("app_article_index") }}">Liste Produit</a></li>
+
+                    </ul>
+                </div>
+            </div>
+              <a class="uk-navbar-item uk-logo" href="{{ path("app_article_index") }}">HOME</a>
+
+            <div class="uk-navbar-center-right"><div>
+                <ul class="uk-navbar-nav">
+                    {% if is_granted("ROLE_MEMBER") %}
+                    <li>
+                        <a href="#">Mon Profil</a>
+                        <div class="uk-navbar-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="#">Profil</a></li>
+                                <li><a href="#">mes listes</a></li>
+                                {% if is_granted("ROLE_ADMIN") %}
+                                <li><a href=>Admin</a></li>
+                                {% endif %}
+                                <li><a href="#">Sign Out</a></li>    
+                            </ul>
+                        </div>
+                    </li>
+                    {% else %}
+                    <li><a href="{{ path("app_login")}}">Sign In</a></li>
+                    <li><a href="{{ path("app_register")}}">Sign Up</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% endblock %}
+        {% block body %}{% endblock %}
+    </body>
+</html> 
