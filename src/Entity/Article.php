@@ -19,6 +19,25 @@ class Article
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $description;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $image;
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image): void
+    {
+        $this->image = $image;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -47,6 +66,5 @@ class Article
 
         return $this;
     }
-
 
 }

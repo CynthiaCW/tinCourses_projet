@@ -14,6 +14,7 @@ class ArticleFixtures extends Fixture
             $article = new Article();
             $article->setNom("Nom " . $i);
             $article->setDescription("Description" . $i);
+            $article->setImage("Image".$i);
             $manager->persist($article);
         }
         $manager->flush();
