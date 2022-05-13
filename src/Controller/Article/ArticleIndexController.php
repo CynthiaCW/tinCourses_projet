@@ -11,7 +11,7 @@ use Doctrine\ORM\Article;
 
 class ArticleIndexController extends AbstractController
 {
-    #[Route('/index', name: 'app_article_index', methods: ['GET'])]
+    #[Route('/article', name: 'app_article_index', methods: ['GET'])]
     public function index(ArticleRepository $articleRepository): Response
     {
         return $this->render('article/index.html.twig', [

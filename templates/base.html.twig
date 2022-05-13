@@ -25,12 +25,12 @@
                 <div>
                     <ul class="uk-navbar-nav">
                         
-                         <li class="uk-active"><a href="{{ path("app_article_index") }}">Liste Produit</a></li>
+                         <li class="uk-active"><a href="{{ path("app_article_index") }}">Articles List</a></li>
 
                     </ul>
                 </div>
             </div>
-              <a class="uk-navbar-item uk-logo" href="{{ path("app_article_index") }}">HOME</a>
+              <a class="uk-navbar-item uk-logo" href="{{ path("app_home") }}">HOME</a>
 
             <div class="uk-navbar-center-right"><div>
                 <ul class="uk-navbar-nav">
@@ -57,6 +57,9 @@
         </div>
     </nav>
     {% endblock %}
-        {% block body %}{% endblock %}
+    {% block main %}
+        <img src="https://images.assetsdelivery.com/compings_v2/mearicon/mearicon1707/mearicon170700389.jpg" >
+    {% endblock %}
+    {% block body %}{% endblock %}
     </body>
 </html> 

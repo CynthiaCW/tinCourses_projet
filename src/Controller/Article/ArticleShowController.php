@@ -6,6 +6,7 @@ use App\Entity\Article;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\ArticleRepository;
 
 
 #[Route('/article')]
@@ -31,6 +32,10 @@ class ArticleShowController extends AbstractController
         {
             $id = array_rand($articles);
             $article = $a->find($id);
+
+             // On fait un random en fonction de la longueur du tableau -1 pour qu'il boucle et génère l'affichage d'un article sans null
+             $id = rand(0, $articles[count($articles)-1]->getId() );
+             $article = $a->find($id);
         }
 
         //dd($article);

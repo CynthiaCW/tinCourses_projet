@@ -11,8 +11,6 @@ class ButtonController extends AbstractController
     #[Route('/button', name: 'button')]
     public function index(): Response
     {
-        return $this->render('button/index.html.twig', [
-            'controller_name' => 'ButtonController',
-        ]);
+        return $this->redirectToRoute("app_home");
     }
 }

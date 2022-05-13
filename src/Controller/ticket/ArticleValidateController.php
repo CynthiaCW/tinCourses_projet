@@ -3,6 +3,7 @@
 namespace App\Controller\Article;
 
 use App\Entity\Ticket;
+use App\Repository\TicketRepository;
 use App\Form\TicketType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
