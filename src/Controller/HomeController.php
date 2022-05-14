@@ -7,11 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-<<<<<<< HEAD
 #[Route('/')]
-=======
-#[Route('/home')]
->>>>>>> 3bedc92db94ebbe968bb4421cf6fdf394420a98f
 class HomeController extends AbstractController
 {
     #[Route('/home', name: 'app_home')]

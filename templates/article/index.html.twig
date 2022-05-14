@@ -11,6 +11,7 @@
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Description</th>
+                <th>Image</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -20,6 +21,8 @@
                 <td>{{ article.id }}</td>
                 <td>{{ article.nom }}</td>
                 <td>{{ article.description }}</td>
+                <td><img src="{{ article.image }}" width="200" height="200"></td>
+
                 <td>
                     <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
                     <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a>
