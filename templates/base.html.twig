@@ -32,14 +32,16 @@
             <a class="uk-navbar-item uk-logo" href="{{ path("app_article") }}">HOME</a>
             <div class="uk-navbar-center-right"><div>
                 <ul class="uk-navbar-nav">
-                    {% if is_granted("ROLE_MEMBER") %}
+
+                
+                    {% if is_granted("ROLE_MEMBER") %} {# Définis en tant role_member connecté #}
                     <li>
                         <a href="#">Mon Profil</a>
                         <div class="uk-navbar-dropdown">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                 <li class="uk-active"><a href="#">Profil</a></li>
                                 <li><a href="#">mes listes</a></li>
-                                {% if is_granted("ROLE_ADMIN") %}
+                                {% if is_granted("ROLE_ADMIN") %}  {# Définis en tant role_admin connecté #}
                                 <li><a href="#">Admin</a></li>
                                 {% endif %}
                                 <li><a href="#">Sign Out</a></li>    

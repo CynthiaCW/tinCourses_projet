@@ -28,11 +28,19 @@ class ArticleShowController extends AbstractController
 
         $id = array_rand($articles);
         $article = $a->find($id);
+        
+        // Probleme BDD : Affichage d'un article null 
         while($article === null)
         {
-            $id = array_rand($articles);
+            // 1er jet
+            // $id = array_rand($articles);
+            // $article = $a->find($id);
+
+            // On fait un random en fonction de la longueur du tableau -1 pour qu'il boucle et génère l'affichage d'un article sans null
+            $id = rand(0, $articles[count($articles)-1]->getId() );
             $article = $a->find($id);
-        }
+        }   
+        
 
         //dd($article);
         return $this->render('article/index.html.twig', [

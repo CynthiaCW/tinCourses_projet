@@ -4,11 +4,25 @@
 
 {% block body %}
 
-    <section> 
-        {{ articleRandom.id }}
-        {{ articleRandom.nom }}
-        {{ articleRandom.description }}
-    </section>
+    <div class="uk-card uk-card-default">
+        <div class="uk-card-media-top">
+            <img src="{{articleRandom.image}}" width="200px" height="300px" alt="">
+        </div>
+
+        <div class="uk-card-body">
+            <h6>{{ articleRandom.id }}</h6>
+            
+            <h2>{{ articleRandom.nom }}</h2>
+            <p>{{ articleRandom.description }}</p>
+        </div>
+    </div>
+        
     
+        <a class="uk-button uk-button-primary uk-button-small" href="{{ path('app_article') }}"> Suivant</a>
+
+        {# {% if is_granted("ROLE_ADMIN") %} #}
+        <h4> Voir la liste des article choisis : </h4>
+        <a class="uk-button uk-button-primary uk-button-small" href="{{ path('app_article') }}"> Voir</a>
+        {# {% endif %} #}
     
 {% endblock %}

@@ -3,7 +3,7 @@
 {% block title %}Article{% endblock %}
 
 {% block body %}
-    <h1>Choisissez un article : </h1>
+    <h1>L'article choisi : {{ article.nom }} </h1>
 
     <table class="table">
         <tbody>
@@ -22,6 +22,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_article') }}">back to list</a>
+    <a class="uk-button uk-button-primary uk-button-small" href="{{ path('app_article') }}">back to list</a>
 
 {% endblock %}

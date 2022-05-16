@@ -4,6 +4,7 @@ namespace App\Controller\Article;
 
 use App\Entity\Ticket;
 use App\Form\TicketType;
+use App\Entity\Article;
 use App\Repository\TicketRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,13 +24,16 @@ class ArticleValidateController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $ticketRepository->add($ticket, true);
-
+            
             return $this->redirectToRoute('app_article_validate_index', [], Response::HTTP_SEE_OTHER);
         }
+
+        
 
         return $this->renderForm('article_validate/new.html.twig', [
             'ticket' => $ticket,
             'form' => $form,
+            "articleRandom" => $article
         ]);
     }
 
