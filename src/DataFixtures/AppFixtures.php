@@ -19,7 +19,7 @@ class AppFixtures extends Fixture
         $article = new Article();
         $article->setNom("tomate");
         $article->setDescription("bonne tomate");
-        $article->setImage("https://static9.depositphotos.com/1628352/1107/i/600/depositphotos_11071361-stock-photo-tomato.jpg");
+        $article->setImage("https://www.atelierdeschefs.com/media/ingredient-e1008-la-tomate.jpg");
         $manager->persist($article);
 
         $article = new Article();
