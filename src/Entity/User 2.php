@@ -4,8 +4,6 @@ namespace App\Entity;
 
 use App\Entity\Interfaces\IRole;
 use App\Repository\UserRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -28,9 +26,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, IRole
 
     #[ORM\Column(type: 'string')]
     private $password;
-
-    #[ORM\OneToMany(mappedBy: 'user_id', targetEntity: Ticket::class)]
-    private $n;
 
     public function getId(): ?int
     {
@@ -124,42 +119,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, IRole
     public function __construct()
     {
         $this->setRoles([self::ROLE_MEMBER]);
-        $this->n = new ArrayCollection();
     }
 
     public function addRole(string $role) {
         array_push($this->roles, $role);
         return $this->getRoles();
-    }
-
-    /**
-     * @return Collection<int, Ticket>
-     */
-    public function getN(): Collection
-    {
-        return $this->n;
-    }
-
-    public function addN(Ticket $n): self
-    {
-        if (!$this->n->contains($n)) {
-            $this->n[] = $n;
-            $n->setUserId($this);
-        }
-
-        return $this;
-    }
-
-    public function removeN(Ticket $n): self
-    {
-        if ($this->n->removeElement($n)) {
-            // set the owning side to null (unless already changed)
-            if ($n->getUserId() === $this) {
-                $n->setUserId(null);
-            }
-        }
-
-        return $this;
     }
 
 

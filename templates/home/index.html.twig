@@ -12,12 +12,12 @@
 
 <div class="contenu">
     <img class="example-wrapper">
-        <h1>Veux-tu rajouter {{ article.nom }} dans ta liste ?! </h1>
+        <h3>Veux-tu rajouter {{ article.nom }} dans ta liste ?! </h3>
 
-        <h2> {{ article.description}}</h2>
+        <h4> {{ article.description}}</h4>
         <img src="{{ article.image }}">
 
-    <button><a href="{{ path('app_home') }}"> ✅</a></button>
+    <button><a href="{{ path('app_ticket_add', {'id':article.id}) }}"> ✅</a></button>
 
         <h1>TinCourses ({{ controller_name }}!) ✅</h1>
 

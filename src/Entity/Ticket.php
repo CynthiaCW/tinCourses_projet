@@ -13,20 +13,44 @@ class Ticket
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'integer')]
-    private $quantite;
-
-    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'ticket')]
+    #[ORM\ManyToOne(targetEntity: user::class, inversedBy: 'n')]
     #[ORM\JoinColumn(nullable: false)]
-    private $user;
+    private $user_id;
 
     #[ORM\ManyToOne(targetEntity: article::class)]
     #[ORM\JoinColumn(nullable: false)]
-    private $article;
+    private $article_id;
+
+    #[ORM\Column(type: 'integer')]
+    private $quantite;
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getUserId(): ?user
+    {
+        return $this->user_id;
+    }
+
+    public function setUserId(?user $user_id): self
+    {
+        $this->user_id = $user_id;
+
+        return $this;
+    }
+
+    public function getArticleId(): ?article
+    {
+        return $this->article_id;
+    }
+
+    public function setArticleId(?article $article_id): self
+    {
+        $this->article_id = $article_id;
+
+        return $this;
     }
 
     public function getQuantite(): ?int
@@ -37,30 +61,6 @@ class Ticket
     public function setQuantite(int $quantite): self
     {
         $this->quantite = $quantite;
-
-        return $this;
-    }
-
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    public function getArticle(): ?article
-    {
-        return $this->article;
-    }
-
-    public function setArticle(?article $article): self
-    {
-        $this->article = $article;
 
         return $this;
     }
